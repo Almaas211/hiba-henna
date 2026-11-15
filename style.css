@@ -1,0 +1,1240 @@
+
+/* =================================
+   HIBA HENNA - MAIN THEME
+================================= */
+
+:root {
+  --bg: #F3E9D2;
+  --surface: #FAF3E3;
+  --ink: #4A2E1F;
+  --muted: #7A5A45;
+  --accent: #6B4226;
+  --accent-ink: #F7EEDA;
+  --straw: #B8895A;
+  --line: #DCCBA6;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Jost', system-ui, sans-serif;
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+h1, h2, h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: .04em;
+}
+
+.ar {
+  font-family: 'Amiri', 'Times New Roman', serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+
+/* =================================
+   HEADER
+================================= */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.logo {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 700;
+  letter-spacing: .14em;
+  font-size: 1.3rem;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-links a {
+  font-size: .9rem;
+  transition: color .2s;
+}
+
+.nav-links a:hover {
+  color: var(--straw);
+}
+
+.cartbtn {
+  position: relative;
+  background: none;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font: inherit;
+  font-size: .85rem;
+  letter-spacing: .08em;
+  white-space: nowrap;
+}
+
+.cartbtn b {
+  display: inline-block;
+  min-width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 99px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-size: .72rem;
+  margin-left: 6px;
+}
+
+
+/* =================================
+   FULL SCREEN HERO SLIDER
+================================= */
+
+.hero-slider {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 65px);
+  min-height: 550px;
+  max-height: 950px;
+  overflow: hidden;
+  background: #2B1B14;
+}
+
+.slider-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 1.1s cubic-bezier(.65, 0, .35, 1);
+}
+
+.slide {
+  min-width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.08);
+  transition: transform 4s ease;
+}
+
+.slide.active img {
+  transform: scale(1);
+}
+
+/* Dark overlay over image */
+
+.slide-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(43, 27, 20, .78) 0%,
+      rgba(43, 27, 20, .42) 45%,
+      rgba(43, 27, 20, .08) 100%
+    );
+  z-index: 1;
+}
+
+/* Slide text */
+
+.slide-content {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  max-width: 520px;
+  color: #F3E5C8;
+  opacity: 0;
+  transition: opacity .7s ease;
+}
+
+.slide.active .slide-content {
+  opacity: 1;
+}
+
+.slide-label {
+  color: #D8C3A0;
+  font-size: .8rem;
+  letter-spacing: .3em;
+  margin: 0 0 15px;
+  animation: textReveal .8s ease;
+}
+
+.slide-content h1 {
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  line-height: .98;
+  letter-spacing: .02em;
+  color: #F3E5C8;
+  margin-bottom: 22px;
+  animation: textReveal 1s ease;
+}
+
+.slide-description {
+  color: #F3E5C8;
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 360px;
+  margin-bottom: 28px;
+  animation: textReveal 1.2s ease;
+}
+
+/* Explore button */
+
+.slide-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  background: #F3E5C8;
+  color: #3A271D;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-size: .78rem;
+  font-weight: 500;
+  letter-spacing: .13em;
+  transition: .3s ease;
+  animation: textReveal 1.4s ease;
+}
+
+.slide-btn:hover {
+  background: #C49A6C;
+  color: #2B1B14;
+  transform: translateY(-3px);
+}
+
+/* Brand text on image */
+
+.slide-brand {
+  position: absolute;
+  right: 4%;
+  bottom: 6%;
+  z-index: 2;
+  color: #F3E5C8;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1rem;
+  letter-spacing: .2em;
+}
+
+/* Previous and next arrows */
+
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(243,229,200,.6);
+  border-radius: 50%;
+  background: rgba(43,27,20,.3);
+  color: #F3E5C8;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.slider-arrow:hover {
+  background: #F3E5C8;
+  color: #2B1B14;
+}
+
+.slider-arrow.prev {
+  left: 20px;
+}
+
+.slider-arrow.next {
+  right: 20px;
+}
+
+/* Bottom indicators */
+
+.slider-bottom {
+  position: absolute;
+  bottom: 7%;
+  right: 5%;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.slider-dots {
+  display: flex;
+  gap: 9px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid #F3E5C8;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: .3s ease;
+}
+
+.dot.active {
+  background: #F3E5C8;
+  transform: scale(1.4);
+}
+
+.slide-counter {
+  color: #F3E5C8;
+  font-size: .8rem;
+  letter-spacing: .1em;
+}
+
+.slider-tagline {
+  position: absolute;
+  z-index: 2;
+  bottom: 7%;
+  left: 5%;
+  color: #E5CFAD;
+  font-size: .7rem;
+  letter-spacing: .2em;
+}
+
+
+/* Slider text animation */
+
+@keyframes textReveal {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =================================
+   PRODUCTS SECTION
+================================= */
+
+section#shop {
+  padding: 56px 0;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+.title h2 {
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+}
+
+.chips {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.chip {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  padding: 8px 18px;
+  border-radius: 99px;
+  cursor: pointer;
+  font: inherit;
+  font-size: .82rem;
+  letter-spacing: .08em;
+}
+
+.chip.on {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-color: var(--accent);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.prod {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.pic {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--straw);
+  background: repeating-linear-gradient(
+    45deg,
+    #F1E3CB 0 10px,
+    var(--surface) 10px 20px
+  );
+}
+
+.pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pbody {
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.pbody h3 {
+  font-size: 1.3rem;
+}
+
+.pbody p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .9rem;
+  flex: 1;
+}
+
+.prow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.price {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+
+/* =================================
+   BUTTONS
+================================= */
+
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--accent-ink);
+  padding: 12px 26px;
+  border-radius: 999px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  font-size: .82rem;
+  text-transform: uppercase;
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn.sm {
+  padding: 9px 18px;
+  font-size: .75rem;
+}
+
+
+/* =================================
+   BENEFITS SECTION
+================================= */
+
+.band {
+  background: var(--surface);
+  border-block: 1px solid var(--line);
+  padding: 56px 0;
+}
+
+.perks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+  text-align: center;
+}
+
+.perks h3 {
+  font-size: 1.25rem;
+  margin-bottom: 4px;
+}
+
+.perks p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .92rem;
+}
+
+
+/* =================================
+   FOOTER
+================================= */
+
+footer {
+  text-align: center;
+  padding: 36px 20px 44px;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+footer .ar {
+  font-size: 1.5rem;
+  color: var(--ink);
+}
+
+.footer-brand {
+  letter-spacing: .18em;
+  font-weight: 500;
+  margin: 4px 0 10px;
+}
+
+footer a {
+  text-decoration: underline;
+}
+
+
+/* =================================
+   CART DRAWER
+================================= */
+
+.veil {
+  position: fixed;
+  inset: 0;
+  background: rgba(74,46,31,.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: .25s;
+  z-index: 40;
+}
+
+.veil.on {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(420px,100%);
+  background: var(--bg);
+  z-index: 50;
+  transform: translateX(100%);
+  transition: .3s;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--line);
+}
+
+.drawer.on {
+  transform: none;
+}
+
+.dh {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.dh h3 {
+  font-size: 1.5rem;
+}
+
+.x {
+  background: none;
+  border: 0;
+  font-size: 1.6rem;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.items {
+  flex: 1;
+  overflow: auto;
+  padding: 8px 20px;
+}
+
+.it {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.it small {
+  color: var(--muted);
+}
+
+.qty {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.qty button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--ink);
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 40px 0;
+}
+
+.dfoot {
+  padding: 16px 20px;
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 10px;
+  background: var(--surface);
+}
+
+.dfoot input,
+.dfoot textarea {
+  width: 100%;
+  padding: 11px 13px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--ink);
+  font: inherit;
+}
+
+.tot {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.err {
+  color: var(--accent);
+  font-size: .82rem;
+  min-height: 1em;
+}
+
+
+/* =================================
+   WHATSAPP FLOATING ICON
+================================= */
+
+.whatsapp-float {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 60;
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #25D366;
+  color: #fff;
+  box-shadow: 0 5px 18px rgba(0,0,0,.22);
+  transition: transform .2s ease;
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-3px);
+}
+
+.whatsapp-float svg {
+  width: 31px;
+  height: 31px;
+  fill: currentColor;
+}
+
+
+/* =================================
+   MOBILE RESPONSIVE
+================================= */
+
+@media (max-width: 768px) {
+
+  .nav-links {
+    display: none;
+  }
+
+  .hero-slider {
+    height: 75vh;
+    min-height: 500px;
+  }
+
+  .slide-content {
+    left: 8%;
+    right: 8%;
+    max-width: 450px;
+  }
+
+  .slide-content h1 {
+    font-size: clamp(2.7rem, 10vw, 4rem);
+  }
+
+  .slide-description {
+    font-size: .9rem;
+  }
+
+  .slider-arrow {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+  }
+
+  .slider-arrow.prev {
+    left: 10px;
+  }
+
+  .slider-arrow.next {
+    right: 10px;
+  }
+
+  .slider-tagline {
+    font-size: .55rem;
+    letter-spacing: .1em;
+  }
+
+  .slider-bottom {
+    right: 5%;
+    bottom: 13%;
+  }
+}
+
+@media (max-width: 480px) {
+
+  nav {
+    padding: 12px;
+  }
+
+  .logo {
+    font-size: 1rem;
+  }
+
+  .hero-slider {
+    height: 72vh;
+    min-height: 460px;
+  }
+
+  .slide-content {
+    left: 9%;
+  }
+
+  .slide-content h1 {
+    font-size: 2.8rem;
+  }
+
+  .slide-label {
+    font-size: .65rem;
+  }
+
+  .slide-description {
+    max-width: 270px;
+    font-size: .82rem;
+  }
+
+  .slide-btn {
+    padding: 12px 19px;
+    font-size: .68rem;
+  }
+
+  .slide-brand {
+    font-size: .75rem;
+  }
+
+  .slider-tagline {
+    bottom: 4%;
+    left: 5%;
+    font-size: .48rem;
+  }
+
+  .slider-bottom {
+    bottom: 9%;
+  }
+
+  .whatsapp-float {
+    width: 54px;
+    height: 54px;
+    right: 16px;
+    bottom: 16px;
+  }
+}
+
+
+
+
+/* =================================
+   BEIGE FULL SCREEN SLIDER THEME
+================================= */
+
+.hero-slider {
+  background: #F3E9D2 !important;
+}
+
+/* Slide background */
+.slide {
+  background: #F3E9D2;
+}
+
+/* Image overlay - light beige */
+.slide-overlay {
+  background: linear-gradient(
+    90deg,
+    rgba(243, 233, 210, 0.25),
+    rgba(243, 233, 210, 0.05)
+  ) !important;
+}
+
+/* All slider headings */
+.slide-content,
+.slide-content h1 {
+  color: #4A2E1F !important;
+}
+
+/* Small headings */
+.slide-label {
+  color: #7A5A45 !important;
+}
+
+/* Description */
+.slide-description {
+  color: #4A2E1F !important;
+}
+
+/* Brand name */
+.slide-brand {
+  color: #4A2E1F !important;
+}
+
+/* Explore button */
+.slide-btn {
+  background: #6B4226 !important;
+  color: #F7EEDA !important;
+  border: 1px solid #6B4226;
+}
+
+.slide-btn:hover {
+  background: #4A2E1F !important;
+  color: #F3E9D2 !important;
+}
+
+/* Navigation arrows */
+.slider-arrow {
+  background: rgba(243, 233, 210, .8) !important;
+  color: #4A2E1F !important;
+  border-color: #6B4226 !important;
+}
+
+.slider-arrow:hover {
+  background: #6B4226 !important;
+  color: #F3E9D2 !important;
+}
+
+/* Slide indicators */
+.dot {
+  border-color: #6B4226 !important;
+}
+
+.dot.active {
+  background: #6B4226 !important;
+}
+
+/* Bottom text */
+.slider-tagline,
+.slide-counter {
+  color: #4A2E1F !important;
+}
+
+
+
+
+/* =================================
+   SLIDER OVERLAP & SPACING FIX
+================================= */
+
+/* Proper heading width */
+.slide-content {
+    width: min(520px, 70%);
+    max-width: 520px;
+    left: 10%;
+}
+
+.slide-content h1 {
+    max-width: 520px;
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    line-height: 1.05;
+    word-break: normal;
+    overflow-wrap: normal;
+}
+
+/* Move brand name to top-right */
+.slide-brand {
+    position: absolute;
+    top: 7%;
+    right: 5%;
+    bottom: auto;
+    z-index: 4;
+    font-size: 1rem;
+    letter-spacing: .2em;
+}
+
+/* Keep slide counter and dots together */
+.slider-bottom {
+    position: absolute;
+    right: 5%;
+    bottom: 9%;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Bottom tagline */
+.slider-tagline {
+    position: absolute;
+    left: 5%;
+    bottom: 9%;
+    z-index: 4;
+}
+
+/* Ensure slider stays within its section */
+.hero-slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+/* Prevent slider elements from causing horizontal overflow */
+.slide {
+    min-width: 100%;
+    overflow: hidden;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+
+    .slide-content {
+        width: 75%;
+        left: 9%;
+    }
+
+    .slide-content h1 {
+        font-size: clamp(2.7rem, 8vw, 3.8rem);
+    }
+
+    .slide-brand {
+        top: 4%;
+        right: 5%;
+        font-size: .75rem;
+    }
+
+    .slider-bottom {
+        bottom: 10%;
+        right: 5%;
+    }
+
+    .slider-tagline {
+        bottom: 5%;
+        left: 5%;
+    }
+}
+
+
+
+
+/* =================================
+   HIBA HENNA - UNIFORM PRODUCT CARDS
+================================= */
+
+/* Product grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+    align-items: stretch;
+}
+
+/* All product cards same size */
+.prod {
+    width: 100%;
+    height: 390px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 14px;
+}
+
+/* Same image area for every product */
+.prod .pic {
+    width: 100%;
+    height: 230px;
+    min-height: 230px;
+    flex: 0 0 230px;
+    aspect-ratio: unset;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* All product images same dimensions */
+.prod .pic img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+/* Product details same layout */
+.prod .pbody {
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 14px;
+    gap: 6px;
+}
+
+/* Product names */
+.prod .pbody h3 {
+    font-size: 1.25rem;
+    line-height: 1.2;
+    min-height: 30px;
+}
+
+/* Product descriptions */
+.prod .pbody p {
+    font-size: .85rem;
+    line-height: 1.4;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* Price and Add button */
+.prod .prow {
+    width: 100%;
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+}
+
+/* Responsive - Tablet */
+@media (max-width: 900px) {
+
+    .grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+}
+
+/* Responsive - Mobile */
+@media (max-width: 600px) {
+
+    .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .prod {
+        height: 340px;
+    }
+
+    .prod .pic {
+        height: 190px;
+        min-height: 190px;
+        flex-basis: 190px;
+    }
+
+    .prod .pbody {
+        padding: 10px;
+    }
+
+    .prod .pbody h3 {
+        font-size: 1rem;
+    }
+
+    .prod .pbody p {
+        font-size: .75rem;
+    }
+
+}
+
+/* Very small mobile screens */
+@media (max-width: 360px) {
+
+    .prod {
+        height: 320px;
+    }
+
+    .prod .pic {
+        height: 170px;
+        min-height: 170px;
+        flex-basis: 170px;
+    }
+
+}
+
+
+/* ===== Equal-size product cards ===== */
+
+#grid {
+  grid-auto-rows: 1fr !important;   /* saare cards ek hi height */
+  align-items: stretch !important;
+}
+
+.prod {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.prod .pbody {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+  height: auto !important;
+}
+
+/* description: hamesha 2 lines ki jagah, poora text dikhe */
+.prod .pbody p {
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+  -webkit-line-clamp: unset !important;
+  line-clamp: unset !important;
+  display: block !important;
+  line-height: 1.6 !important;
+  min-height: 3.2em !important;
+  margin-bottom: 8px !important;
+}
+
+/* size label aur dropdown ki height same, taaki price row align rahe */
+.prod .pbody .vlabel,
+.prod .pbody .vsel {
+  height: 38px !important;
+  margin: 6px 0 !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.prod .pbody .vsel {
+  display: block !important;
+}
+
+/* price + ADD hamesha card ke neeche, andar */
+.prod .pbody .prow {
+  margin-top: auto !important;
+}
+
+.prod .pbody .vlabel,
+.prod .pbody .vsel {
+  position: static !important;
+  flex: none !important;
+}
+
+.prod .pbody .prow {
+  margin-top: auto !important;
+}
+
+
+
+.prod .pbody .vsel {
+  background-color: #f6ecda !important;   /* card ke cream se thoda deep */
+  color: #5a3520 !important;              /* ADD button wala brown */
+  border: 1px solid #d9c6a3 !important;   /* soft beige border */
+  outline: none !important;
+}
+
+.prod .pbody .vsel:hover,
+.prod .pbody .vsel:focus {
+  border-color: #6b3f26 !important;       /* focus par brown */
+  background-color: #f2e4cc !important;
+}
+
+/* dropdown list ke options */
+.prod .pbody .vsel option {
+  background-color: #faf3e6;
+  color: #5a3520;
+}
