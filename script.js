@@ -31,168 +31,31 @@ var CATEGORIES = [
 
 /* =================================
    PRODUCT DETAILS - 22 PRODUCTS
+   The order below = the order shown in "All"
    cat  = main category
    also = extra categories where the product also shows
    variants = size/quantity + price
+   was  = (optional) old price, shown lined above the offer price
 ================================= */
 
 var PRODUCTS = [
 
-  // TOOLS & ACCESSORIES
+  // 1. HENNA POWDER
 
   {
-    id: 'spatula',
-    cat: 'Tools & Accessories',
-    name: 'Henna Spatula',
-    desc: 'A must have henna essential for smooth, effortless mixing with minimal wastage.',
+    id: 'henna-powder',
+    cat: 'Henna Essentials',
+    name: 'Premium Henna Powder',
+    desc: 'Finely sifted, high-quality henna powder that delivers a smooth, silky paste and rich, dark stains.',
     variants: [
-      { label: '1 piece', price: 12 }
+      { label: '100g', price: 20 },
+      { label: '500g', price: 40 },
+      { label: '1kg', price: 60 }
     ],
-    img: 'images/products/spatula.png'
+    img: 'images/products/henna-powder.png'
   },
 
-  {
-    id: 'acrylic-hand',
-    cat: 'Tools & Accessories',
-    name: 'Acrylic Hand',
-    desc: 'A perfect practice companion for henna artists to create, improve and showcase designs with ease. Reusable and ideal for endless practice!',
-    variants: [
-      { label: '1 piece', price: 30 }
-    ],
-    img: 'images/products/acrylic-hand.png'
-  },
-
-  {
-    id: 'fake-hand',
-    cat: 'Tools & Accessories',
-    also: ['Reusable Books and Templates'],
-    name: 'Realistic Hand Template',
-    desc: 'Reusable Realistic Hand Template - Practice your henna designs on a realistic hand template with ample space for creativity.',
-    variants: [
-      { label: 'Reusable template', price: 15 }
-    ],
-    img: 'images/products/fake-hand.png'
-  },
-
-  {
-    id: 'cutter',
-    cat: 'Tools & Accessories',
-    name: 'Cellophane Sheet Cutter',
-    desc: 'Cut cellophane sheets effortlessly and achieve clean, precise cuts for perfectly sized henna cones every time.',
-    variants: [
-      { label: '1 piece', price: 25 }
-    ],
-    img: 'images/products/cutter.png'
-  },
-
-  {
-    id: 'cellophane',
-    cat: 'Tools & Accessories',
-    also: ['Henna Essentials'],
-    name: 'Cellophane Sheets',
-    desc: 'High-quality, easy-to-roll sheets designed for smooth cone making.',
-    variants: [
-      { label: 'Per piece', price: 1 }
-    ],
-    img: 'images/products/cellophane.png'
-  },
-
-  {
-    id: 'mefix',
-    cat: 'Tools & Accessories',
-    name: 'Mefix / Henna Tape',
-    desc: 'Keeps dried henna securely in place, preventing flakes and ensuring a mess-free experience.',
-    variants: [
-      { label: '1 roll', price: 35 }
-    ],
-    img: 'images/products/mefix.png'
-  },
-
-
-  // HENNA CONES AND COMBOS
-
-  {
-    id: 'organic-cone',
-    cat: 'Henna Cones and Combos',
-    name: 'Premium Organic Henna Cones',
-    desc: 'Made with 100% natural ingredients for a rich, deep stain and smooth, effortless application.',
-    variants: [
-      { label: '30g', price: 10 }
-    ],
-    img: 'images/products/organic-cone.png'
-  },
-
-  {
-    id: 'practice-cone',
-    cat: 'Henna Cones and Combos',
-    name: 'Practice Henna Cones',
-    desc: 'Perfect for beginners to practise and improve their henna application skills with ease and confidence.',
-    variants: [
-      { label: '25g', price: 5 }
-    ],
-    img: 'images/products/practice-cone.png'
-  },
-
-  {
-    id: 'nail-cone',
-    cat: 'Henna Cones and Combos',
-    name: 'Premium Nail Cones',
-    desc: 'Achieve a rich, dark maroon stain with smooth application and long-lasting results.',
-    variants: [
-      { label: '10-12g', price: 8 }
-    ],
-    img: 'images/products/nail-cone.png'
-  },
-
-  {
-    id: 'trio-kit',
-    cat: 'Henna Cones and Combos',
-    name: 'The Trio Trial Kit',
-    desc: '1 Premium Henna Cone, 1 Nail Cone and 1 Jagua Gel Cone.',
-    variants: [
-      { label: '3 cones', price: 42 }
-    ],
-    img: 'images/products/trio-kit.png'
-  },
-
-  {
-    id: 'signature-mini',
-    cat: 'Henna Cones and Combos',
-    name: 'Signature Combo - Mini',
-    desc: '3 Premium Henna Cones and 1 Nail Cone.',
-    variants: [
-      { label: '4 cones', price: 35 }
-    ],
-    img: 'images/products/signature-mini.png'
-  },
-
-  {
-    id: 'signature-plus',
-    cat: 'Henna Cones and Combos',
-    name: 'Signature Combo - Plus',
-    desc: '5 Premium Henna Cones and 2 Nail Cones.',
-    variants: [
-      { label: '7 cones', price: 62 }
-    ],
-    img: 'images/products/signature-plus.png'
-  },
-
-
-  // ESSENTIAL OILS AND NAIL LIQUID
-
-  {
-    id: 'nail-liquid',
-    cat: 'Essential Oils and Nail Liquid',
-    name: 'Nail Liquid',
-    desc: 'Create your own nail cones with our high-quality nail liquid for a rich, dark maroon stain.',
-    variants: [
-      { label: '30 ml', price: 30 },
-      { label: '100 ml', price: 60 },
-      { label: '500 ml', price: 180 },
-      { label: '1 litre', price: 250 }
-    ],
-    img: 'images/products/nail-liquid.png'
-  },
+  // 2. EUCALYPTUS OIL
 
   {
     id: 'eucalyptus',
@@ -209,6 +72,8 @@ var PRODUCTS = [
     img: 'images/products/eucalyptus-oil.png'
   },
 
+  // 3. TEA TREE OIL
+
   {
     id: 'tea-tree',
     cat: 'Essential Oils and Nail Liquid',
@@ -224,24 +89,7 @@ var PRODUCTS = [
     img: 'images/products/tea-tree-oil.png'
   },
 
-
-  // HENNA ESSENTIALS
-
-  {
-    id: 'henna-powder',
-    cat: 'Henna Essentials',
-    name: 'Premium Henna Powder',
-    desc: 'Finely sifted, high-quality henna powder that delivers a smooth, silky paste and rich, dark stains.',
-    variants: [
-      { label: '100g', price: 20 },
-      { label: '500g', price: 40 },
-      { label: '1kg', price: 60 }
-    ],
-    img: 'images/products/henna-powder.png'
-  },
-
-
-  // REUSABLE BOOKS AND TEMPLATES
+  // 4. HIBA HENNA REUSABLE BOOK (BLUE) - PART 1  (offer: was 100, now 80)
 
   {
     id: 'practice-book',
@@ -249,10 +97,12 @@ var PRODUCTS = [
     name: 'Hiba Henna Practice Book (Part 1)',
     desc: 'Explore beautiful henna templates in a reusable workbook, designed to help you practise, improve and create with confidence.',
     variants: [
-      { label: 'Reusable workbook', price: 80 }
+      { label: 'Reusable workbook', price: 80, was: 100 }
     ],
     img: 'images/products/practice-book.png'
   },
+
+  // 5. GULF DESIGN BOOK - PART 2  (offer: was 100, now 85)
 
   {
     id: 'gulf-design',
@@ -260,38 +110,38 @@ var PRODUCTS = [
     name: 'Hiba Henna Gulf Designs Reusable Book (Part 2)',
     desc: 'Explore 35+ exclusively Gulf-inspired henna designs in our reusable practice book, complete with a FREE realistic reusable hand template!',
     variants: [
-      { label: 'Reusable workbook', price: 85 }
+      { label: 'Reusable workbook', price: 85, was: 100 }
     ],
     img: 'images/products/gulf-design.png'
   },
 
-
-  // KITS
-
-  {
-    id: 'beginner-kit',
-    cat: 'Kits',
-    name: 'Beginner Henna Kit',
-    desc: 'Make your own DIY henna cones and begin your henna journey with all the essentials you need to get started.',
-    variants: [
-      { label: '1 kit', price: 40 }
-    ],
-    img: 'images/products/beginner-kit.png'
-  },
+  // 6. PREMIUM HENNA CONES
 
   {
-    id: 'jagua-kit',
-    cat: 'Kits',
-    name: 'Jagua Kit',
-    desc: 'Make your own Jagua gel at home with our DIY kit and create beautiful, tattoo-like designs with a deep blue-black stain.',
+    id: 'organic-cone',
+    cat: 'Henna Cones and Combos',
+    name: 'Premium Organic Henna Cones',
+    desc: 'Made with 100% natural ingredients for a rich, deep stain and smooth, effortless application.',
     variants: [
-      { label: '1 kit', price: 100 }
+      { label: '30g', price: 10 }
     ],
-    img: 'images/products/jagua-kit.png'
+    img: 'images/products/organic-cone.png'
   },
 
+  // 7. NAIL CONES
 
-  // JAGUA CONES
+  {
+    id: 'nail-cone',
+    cat: 'Henna Cones and Combos',
+    name: 'Premium Nail Cones',
+    desc: 'Achieve a rich, dark maroon stain with smooth application and long-lasting results.',
+    variants: [
+      { label: '10-12g', price: 8 }
+    ],
+    img: 'images/products/nail-cone.png'
+  },
+
+  // 8. JAGUA GEL CONES
 
   {
     id: 'jagua-cone',
@@ -304,6 +154,21 @@ var PRODUCTS = [
     img: 'images/products/jagua-cone.png'
   },
 
+  // 9. PRACTICE CONES
+
+  {
+    id: 'practice-cone',
+    cat: 'Henna Cones and Combos',
+    name: 'Practice Henna Cones',
+    desc: 'Perfect for beginners to practise and improve their henna application skills with ease and confidence.',
+    variants: [
+      { label: '25g', price: 5 }
+    ],
+    img: 'images/products/practice-cone.png'
+  },
+
+  // 10. JAGUA GEL 100g
+
   {
     id: 'jagua-paste',
     cat: 'Jagua Cones',
@@ -313,6 +178,167 @@ var PRODUCTS = [
       { label: '100g', price: 150 }
     ],
     img: 'images/products/jagua-paste.png'
+  },
+
+  // 11. JAGUA KIT
+
+  {
+    id: 'jagua-kit',
+    cat: 'Kits',
+    name: 'Jagua Kit',
+    desc: 'Make your own Jagua gel at home with our DIY kit and create beautiful, tattoo-like designs with a deep blue-black stain.',
+    variants: [
+      { label: '1 kit', price: 100 }
+    ],
+    img: 'images/products/jagua-kit.png'
+  },
+
+  // 12. BEGINNERS HENNA KIT
+
+  {
+    id: 'beginner-kit',
+    cat: 'Kits',
+    name: 'Beginner Henna Kit',
+    desc: 'Make your own DIY henna cones and begin your henna journey with all the essentials you need to get started.',
+    variants: [
+      { label: '1 kit', price: 40 }
+    ],
+    img: 'images/products/beginner-kit.png'
+  },
+
+  // 13. THE TRIO TRIAL KIT COMBO
+
+  {
+    id: 'trio-kit',
+    cat: 'Henna Cones and Combos',
+    name: 'The Trio Trial Kit',
+    desc: '1 Premium Henna Cone, 1 Nail Cone and 1 Jagua Gel Cone.',
+    variants: [
+      { label: '3 cones', price: 42 }
+    ],
+    img: 'images/products/trio-kit.png'
+  },
+
+  // 14. SIGNATURE COMBO MINI
+
+  {
+    id: 'signature-mini',
+    cat: 'Henna Cones and Combos',
+    name: 'Signature Combo - Mini',
+    desc: '3 Premium Henna Cones and 1 Nail Cone.',
+    variants: [
+      { label: '4 cones', price: 35 }
+    ],
+    img: 'images/products/signature-mini.png'
+  },
+
+  // 15. SIGNATURE COMBO PLUS
+
+  {
+    id: 'signature-plus',
+    cat: 'Henna Cones and Combos',
+    name: 'Signature Combo - Plus',
+    desc: '5 Premium Henna Cones and 2 Nail Cones.',
+    variants: [
+      { label: '7 cones', price: 62 }
+    ],
+    img: 'images/products/signature-plus.png'
+  },
+
+  // 16. NAIL LIQUID
+
+  {
+    id: 'nail-liquid',
+    cat: 'Essential Oils and Nail Liquid',
+    name: 'Nail Liquid',
+    desc: 'Create your own nail cones with our high-quality nail liquid for a rich, dark maroon stain.',
+    variants: [
+      { label: '30 ml', price: 30 },
+      { label: '100 ml', price: 60 },
+      { label: '500 ml', price: 180 },
+      { label: '1 litre', price: 250 }
+    ],
+    img: 'images/products/nail-liquid.png'
+  },
+
+  // 17. MEFIX TAPE
+
+  {
+    id: 'mefix',
+    cat: 'Tools & Accessories',
+    name: 'Mefix / Henna Tape',
+    desc: 'Keeps dried henna securely in place, preventing flakes and ensuring a mess-free experience.',
+    variants: [
+      { label: '1 roll', price: 35 }
+    ],
+    img: 'images/products/mefix.png'
+  },
+
+  // 18. ACRYLIC HAND
+
+  {
+    id: 'acrylic-hand',
+    cat: 'Tools & Accessories',
+    name: 'Acrylic Hand',
+    desc: 'A perfect practice companion for henna artists to create, improve and showcase designs with ease. Reusable and ideal for endless practice!',
+    variants: [
+      { label: '1 piece', price: 30 }
+    ],
+    img: 'images/products/acrylic-hand.png'
+  },
+
+  // 19. SPATULA
+
+  {
+    id: 'spatula',
+    cat: 'Tools & Accessories',
+    name: 'Henna Spatula',
+    desc: 'A must have henna essential for smooth, effortless mixing with minimal wastage.',
+    variants: [
+      { label: '1 piece', price: 12 }
+    ],
+    img: 'images/products/spatula.png'
+  },
+
+  // 20. REALISTIC HAND TEMPLATE
+
+  {
+    id: 'fake-hand',
+    cat: 'Tools & Accessories',
+    also: ['Reusable Books and Templates'],
+    name: 'Realistic Hand Template',
+    desc: 'Reusable Realistic Hand Template - Practice your henna designs on a realistic hand template with ample space for creativity.',
+    variants: [
+      { label: 'Reusable template', price: 15 }
+    ],
+    img: 'images/products/fake-hand.png'
+  },
+
+  // 21. CELLOPHANE SHEET CUTTER (not in your list - kept at the end)
+
+  {
+    id: 'cutter',
+    cat: 'Tools & Accessories',
+    name: 'Cellophane Sheet Cutter',
+    desc: 'Cut cellophane sheets effortlessly and achieve clean, precise cuts for perfectly sized henna cones every time.',
+    variants: [
+      { label: '1 piece', price: 25 }
+    ],
+    img: 'images/products/cutter.png'
+  },
+
+  // 22. CELLOPHANE SHEETS (not in your list - kept at the end)
+
+  {
+    id: 'cellophane',
+    cat: 'Tools & Accessories',
+    also: ['Henna Essentials'],
+    name: 'Cellophane Sheets',
+    desc: 'High-quality, easy-to-roll sheets designed for smooth cone making.',
+    variants: [
+      { label: 'Per piece', price: 1 }
+    ],
+    img: 'images/products/cellophane.png'
   }
 
 ];
@@ -355,6 +381,31 @@ function find(id) {
   }
 
   return null;
+}
+
+
+/* =================================
+   PRICE DISPLAY
+   If a variant has "was" (old price),
+   the old price is shown lined above
+   the offer price.
+================================= */
+
+function priceHTML(v) {
+
+  if (v && v.was) {
+
+    return '<small style="display:block;font-size:.55em;line-height:1.2;' +
+      'font-weight:500;text-decoration:line-through;' +
+      'text-decoration-thickness:1.5px;color:#7a4a2e;opacity:.9;">' +
+      money(v.was) +
+      '</small>' +
+      money(v.price);
+
+  }
+
+  return money(v.price);
+
 }
 
 
@@ -525,7 +576,7 @@ function renderGrid() {
 
       '<div class="prow">' +
 
-      '<span class="price">' + money(current.price) + '</span>' +
+      '<span class="price">' + priceHTML(current) + '</span>' +
 
       '<button class="btn sm" data-add="' + p.id + '">' +
       'Add</button>' +
@@ -614,7 +665,7 @@ function buildDetail() {
     '.d-size{font-size:15px;color:#5a3520;margin-bottom:14px;opacity:.85;}' +
 
     '.d-price{font-family:"Cormorant Garamond",serif;font-size:36px;' +
-    'color:#4a2a17;margin:6px 0 16px;font-weight:600;}' +
+    'color:#4a2a17;margin:6px 0 16px;font-weight:600;line-height:1.1;}' +
 
     '.d-add{width:100%;padding:16px;border:0;border-radius:999px;' +
     'background:#6b3f26;color:#f6ecda;font-size:15px;letter-spacing:2px;' +
@@ -827,7 +878,7 @@ function updateDetailPrice() {
 
   var cur = p.variants[getSelected(p.id)] || p.variants[0];
 
-  $('dPrice').textContent = money(cur.price);
+  $('dPrice').innerHTML = priceHTML(cur);
 
 }
 
@@ -1087,13 +1138,9 @@ function renderCart() {
 
 function openCart(on) {
 
-  var drawer = document.getElementById('drawer');
+  $('drawer').classList.toggle('on', on);
 
-  var veil = document.getElementById('veil');
-
-  if (drawer) drawer.classList.toggle('on', on);
-
-  if (veil) veil.classList.toggle('on', on);
+  $('veil').classList.toggle('on', on);
 
   /* Hide the floating WhatsApp icon while the cart is open */
 
@@ -1107,23 +1154,17 @@ function openCart(on) {
 
 }
 
-/* Cart button (works even if the button is re-rendered) */
+$('open').onclick = function() {
 
-document.addEventListener('click', function(e) {
+  openCart(true);
 
-  if (e.target.closest('#open')) {
+};
 
-    openCart(true);
+$('close').onclick = $('veil').onclick = function() {
 
-  }
+  openCart(false);
 
-  if (e.target.closest('#close') || e.target.closest('#veil')) {
-
-    openCart(false);
-
-  }
-
-});
+};
 
 
 /* =================================

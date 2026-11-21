@@ -12,6 +12,112 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@300;400;500&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
+
+<style>
+  /* BOOK APPOINTMENT STRIP (compact + shimmer) */
+
+  .book-strip {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(120deg, #5a3520 0%, #7a4a2e 50%, #5a3520 100%);
+    color: #f3e3c3;
+    text-align: center;
+    padding: 18px 20px;
+  }
+
+  /* moving shimmer light across the strip */
+  .book-strip::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -60%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(
+      100deg,
+      transparent 0%,
+      rgba(255, 233, 185, .28) 50%,
+      transparent 100%
+    );
+    transform: skewX(-20deg);
+    animation: bookShimmer 4.5s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes bookShimmer {
+    0%   { left: -60%; }
+    55%  { left: 130%; }
+    100% { left: 130%; }
+  }
+
+  .book-strip h3 {
+    position: relative;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 4px;
+    color: #f6ecda;
+    letter-spacing: 1px;
+  }
+
+  .book-strip p {
+    position: relative;
+    margin: 0 0 12px;
+    font-size: 14px;
+    opacity: .9;
+  }
+
+  .book-btn {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    padding: 10px 24px;
+    border-radius: 999px;
+    background: linear-gradient(120deg, #f3e3c3, #fff3d6, #f3e3c3);
+    color: #5a3520;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+    box-shadow: 0 0 14px rgba(255, 226, 170, .45);
+  }
+
+  /* shimmer on the button too */
+  .book-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -80%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      100deg,
+      transparent,
+      rgba(255, 255, 255, .85),
+      transparent
+    );
+    transform: skewX(-20deg);
+    animation: btnShimmer 3s ease-in-out infinite;
+  }
+
+  @keyframes btnShimmer {
+    0%   { left: -80%; }
+    50%  { left: 140%; }
+    100% { left: 140%; }
+  }
+
+  .book-btn:active {
+    transform: scale(.97);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .book-strip::after,
+    .book-btn::after {
+      animation: none;
+    }
+  }
+</style>
 </head>
 
 <body>
@@ -53,6 +159,24 @@
     <div class="grid" id="grid"></div>
 
   </div>
+
+</section>
+
+
+<!-- BOOK APPOINTMENT (above About) -->
+
+<section class="book-strip" id="book">
+
+  <h3>Book Henna Appointments</h3>
+
+  <p>Tap below to send us your booking details on WhatsApp.</p>
+
+  <a class="book-btn"
+     href="https://wa.me/971521800153?text=Hello%20Hiba%20Henna!%20I%20would%20like%20to%20book%20a%20henna%20appointment.%0A%0AName%3A%20%0ALocation%3A%20%0ADate%3A%20%0ATime%3A%20%0ANumber%20of%20people%3A%20"
+     target="_blank"
+     rel="noopener noreferrer">
+    Click Here🤎
+  </a>
 
 </section>
 
