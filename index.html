@@ -45,7 +45,7 @@
   }
 
 
-  /* TOP BANNER (full image, fits the screen - no scrolling needed on laptop) */
+  /* TOP BANNER (laptop = wide image, phone = phone-size image) */
 
   .top-banner {
     width: 100%;
@@ -53,14 +53,28 @@
     line-height: 0;
   }
 
+  .top-banner picture {
+    display: block;
+  }
+
   .top-banner img {
     display: block;
     height: auto;
     margin: 0 auto;
 
-    /* width = smallest of: full width, 1200px, or the width that keeps
-       the banner height inside the screen (image ratio is 2:1) */
+    /* laptop: width = smallest of full width, 1200px, or the width that
+       keeps the banner height inside the screen (image ratio is 2:1) */
     width: min(100%, 1200px, calc((100vh - 130px) * 2));
+  }
+
+  /* phone: full width, taller phone-size banner */
+
+  @media (max-width: 700px) {
+
+    .top-banner img {
+      width: 100%;
+    }
+
   }
 
 
@@ -194,13 +208,16 @@
 
 <main id="top">
 
-<!-- TOP BANNER -->
+<!-- TOP BANNER (phone gets its own phone-size image) -->
 
 <div class="top-banner">
-  <img src="images/banner.jpg"
-       alt="Hiba Henna - Henna, Jagua, Practice Tools and Kits"
-       width="1774"
-       height="887">
+  <picture>
+    <source media="(max-width: 700px)" srcset="images/banner-mobile.jpg">
+    <img src="images/banner.jpg"
+         alt="Hiba Henna - Henna, Jagua, Practice Tools and Kits"
+         width="1774"
+         height="887">
+  </picture>
 </div>
 
 
@@ -235,7 +252,7 @@
      href="https://wa.me/971521800153?text=Hello%20Hiba%20Henna!%20I%20would%20like%20to%20book%20a%20henna%20appointment.%0A%0AName%3A%20%0ALocation%3A%20%0ADate%3A%20%0ATime%3A%20%0ANumber%20of%20people%3A%20"
      target="_blank"
      rel="noopener noreferrer">
-    Book Henna Appointments
+    Click Here🤎
   </a>
 
 </section>
