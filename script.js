@@ -1,17 +1,23 @@
 /* =================================
    WHATSAPP AND CURRENCY SETTINGS
+   (replace 91XXXXXXXXXX with your
+   India WhatsApp number, with 91
+   in front and no + or spaces)
 ================================= */
 
 var WHATSAPP = '971521800153';
-var CURRENCY = 'AED';
+var CURRENCY = '₹';
 
 
 /* =================================
-   DELIVERY SETTINGS
-   (Delivery all over UAE - flat fee)
+   DELIVERY SETTINGS (India)
+   Fee = 0 means no delivery line.
+   Note = '' means no notice box.
+   Fill these later if you want them.
 ================================= */
 
-var DELIVERY_FEE = 20;
+var DELIVERY_FEE = 150;
+var DELIVERY_NOTE = 'PAN India Delivery - ₹150';
 
 
 /* =================================
@@ -20,7 +26,7 @@ var DELIVERY_FEE = 20;
 
 var CATEGORIES = [
   'Tools & Accessories',
-  'Henna Cones and Combos',
+  'Nails Cones',
   'Essential Oils and Nail Liquid',
   'Henna Essentials',
   'Reusable Books and Templates',
@@ -31,16 +37,17 @@ var CATEGORIES = [
 
 /* =================================
    PRODUCT DETAILS - 22 PRODUCTS
-   The order below = the order shown in "All"
-   cat  = main category
-   also = extra categories where the product also shows
-   variants = size/quantity + price
-   was  = (optional) old price, shown lined above the offer price
+   - Products with a price come FIRST.
+   - soon: true  = "Coming Soon"
+     (no price, no Add button)
+   - To launch a product later: remove
+     soon: true, and put the real price
+     in variants, then move it up.
 ================================= */
 
 var PRODUCTS = [
 
-  // 1. HENNA POWDER
+  /* ---------- PRODUCTS WITH PRICE ---------- */
 
   {
     id: 'henna-powder',
@@ -48,14 +55,12 @@ var PRODUCTS = [
     name: 'Premium Henna Powder',
     desc: 'Finely sifted, high-quality henna powder that delivers a smooth, silky paste and rich, dark stains.',
     variants: [
-      { label: '100g', price: 20 },
-      { label: '500g', price: 40 },
-      { label: '1kg', price: 60 }
+      { label: '100 g', price: 100 },
+      { label: '500 g', price: 270 },
+      { label: '1 Kg', price: 450 }
     ],
     img: 'images/products/henna-powder.png'
   },
-
-  // 2. EUCALYPTUS OIL
 
   {
     id: 'eucalyptus',
@@ -64,15 +69,13 @@ var PRODUCTS = [
     name: 'Eucalyptus Essential Oil',
     desc: 'A premium essential oil ideal for henna paste preparation, helping achieve a rich, deep stain.',
     variants: [
-      { label: '30 ml', price: 30 },
-      { label: '100 ml', price: 50 },
-      { label: '500 ml', price: 150 },
-      { label: '1 litre', price: 220 }
+      { label: '30 ml', price: 150 },
+      { label: '100 ml', price: 340 },
+      { label: '500 ml', price: 1350 },
+      { label: '1 litre', price: 2400 }
     ],
     img: 'images/products/eucalyptus-oil.png'
   },
-
-  // 3. TEA TREE OIL
 
   {
     id: 'tea-tree',
@@ -81,171 +84,13 @@ var PRODUCTS = [
     name: 'Tea Tree Essential Oil',
     desc: 'Ideal for henna paste preparation, helping release and develop a rich, dark stain when used correctly.',
     variants: [
-      { label: '30 ml', price: 30 },
-      { label: '100 ml', price: 60 },
-      { label: '500 ml', price: 180 },
-      { label: '1 litre', price: 250 }
+      { label: '30 ml', price: 180 },
+      { label: '100 ml', price: 430 },
+      { label: '500 ml', price: 1650 },
+      { label: '1 litre', price: 3100 }
     ],
     img: 'images/products/tea-tree-oil.png'
   },
-
-  // 4. HIBA HENNA REUSABLE BOOK (BLUE) - PART 1  (offer: was 100, now 80)
-
-  {
-    id: 'practice-book',
-    cat: 'Reusable Books and Templates',
-    name: 'Hiba Henna Practice Book (Part 1)',
-    desc: 'Explore beautiful henna templates in a reusable workbook, designed to help you practise, improve and create with confidence.',
-    variants: [
-      { label: 'Reusable workbook', price: 80, was: 100 }
-    ],
-    img: 'images/products/practice-book.png'
-  },
-
-  // 5. GULF DESIGN BOOK - PART 2  (offer: was 100, now 85)
-
-  {
-    id: 'gulf-design',
-    cat: 'Reusable Books and Templates',
-    name: 'Hiba Henna Gulf Designs Reusable Book (Part 2)',
-    desc: 'Explore 35+ exclusively Gulf-inspired henna designs in our reusable practice book, complete with a FREE realistic reusable hand template!',
-    variants: [
-      { label: 'Reusable workbook', price: 85, was: 100 }
-    ],
-    img: 'images/products/gulf-design.png'
-  },
-
-  // 6. PREMIUM HENNA CONES
-
-  {
-    id: 'organic-cone',
-    cat: 'Henna Cones and Combos',
-    name: 'Premium Organic Henna Cones',
-    desc: 'Made with 100% natural ingredients for a rich, deep stain and smooth, effortless application.',
-    variants: [
-      { label: '30g', price: 10 }
-    ],
-    img: 'images/products/organic-cone.png'
-  },
-
-  // 7. NAIL CONES
-
-  {
-    id: 'nail-cone',
-    cat: 'Henna Cones and Combos',
-    name: 'Premium Nail Cones',
-    desc: 'Achieve a rich, dark maroon stain with smooth application and long-lasting results.',
-    variants: [
-      { label: '10-12g', price: 8 }
-    ],
-    img: 'images/products/nail-cone.png'
-  },
-
-  // 8. JAGUA GEL CONES
-
-  {
-    id: 'jagua-cone',
-    cat: 'Jagua Cones',
-    name: 'Premium Jagua Gel Cone',
-    desc: 'Create beautiful, tattoo-like designs with a deep blue-black stain using our ready-to-use Jagua gel cone.',
-    variants: [
-      { label: '15g', price: 25 }
-    ],
-    img: 'images/products/jagua-cone.png'
-  },
-
-  // 9. PRACTICE CONES
-
-  {
-    id: 'practice-cone',
-    cat: 'Henna Cones and Combos',
-    name: 'Practice Henna Cones',
-    desc: 'Perfect for beginners to practise and improve their henna application skills with ease and confidence.',
-    variants: [
-      { label: '25g', price: 5 }
-    ],
-    img: 'images/products/practice-cone.png'
-  },
-
-  // 10. JAGUA GEL 100g
-
-  {
-    id: 'jagua-paste',
-    cat: 'Jagua Cones',
-    name: 'Bulk Jagua Gel Paste',
-    desc: 'Make your own Jagua cones with our ready-to-use gel paste for beautiful, deep blue-black, tattoo-like stains.',
-    variants: [
-      { label: '100g', price: 150 }
-    ],
-    img: 'images/products/jagua-paste.png'
-  },
-
-  // 11. JAGUA KIT
-
-  {
-    id: 'jagua-kit',
-    cat: 'Kits',
-    name: 'Jagua Kit',
-    desc: 'Make your own Jagua gel at home with our DIY kit and create beautiful, tattoo-like designs with a deep blue-black stain.',
-    variants: [
-      { label: '1 kit', price: 100 }
-    ],
-    img: 'images/products/jagua-kit.png'
-  },
-
-  // 12. BEGINNERS HENNA KIT
-
-  {
-    id: 'beginner-kit',
-    cat: 'Kits',
-    name: 'Beginner Henna Kit',
-    desc: 'Make your own DIY henna cones and begin your henna journey with all the essentials you need to get started.',
-    variants: [
-      { label: '1 kit', price: 40 }
-    ],
-    img: 'images/products/beginner-kit.png'
-  },
-
-  // 13. THE TRIO TRIAL KIT COMBO
-
-  {
-    id: 'trio-kit',
-    cat: 'Henna Cones and Combos',
-    name: 'The Trio Trial Kit',
-    desc: '1 Premium Henna Cone, 1 Nail Cone and 1 Jagua Gel Cone.',
-    variants: [
-      { label: '3 cones', price: 42 }
-    ],
-    img: 'images/products/trio-kit.png'
-  },
-
-  // 14. SIGNATURE COMBO MINI
-
-  {
-    id: 'signature-mini',
-    cat: 'Henna Cones and Combos',
-    name: 'Signature Combo - Mini',
-    desc: '3 Premium Henna Cones and 1 Nail Cone.',
-    variants: [
-      { label: '4 cones', price: 35 }
-    ],
-    img: 'images/products/signature-mini.png'
-  },
-
-  // 15. SIGNATURE COMBO PLUS
-
-  {
-    id: 'signature-plus',
-    cat: 'Henna Cones and Combos',
-    name: 'Signature Combo - Plus',
-    desc: '5 Premium Henna Cones and 2 Nail Cones.',
-    variants: [
-      { label: '7 cones', price: 62 }
-    ],
-    img: 'images/products/signature-plus.png'
-  },
-
-  // 16. NAIL LIQUID
 
   {
     id: 'nail-liquid',
@@ -253,54 +98,32 @@ var PRODUCTS = [
     name: 'Nail Liquid',
     desc: 'Create your own nail cones with our high-quality nail liquid for a rich, dark maroon stain.',
     variants: [
-      { label: '30 ml', price: 30 },
-      { label: '100 ml', price: 60 },
-      { label: '500 ml', price: 180 },
-      { label: '1 litre', price: 250 }
+      { label: '1 litre', price: 1500 }
     ],
     img: 'images/products/nail-liquid.png'
   },
 
-  // 17. MEFIX TAPE
-
   {
-    id: 'mefix',
-    cat: 'Tools & Accessories',
-    name: 'Mefix / Henna Tape',
-    desc: 'Keeps dried henna securely in place, preventing flakes and ensuring a mess-free experience.',
+    id: 'practice-book',
+    cat: 'Reusable Books and Templates',
+    name: 'Hiba Henna Practice Book (Part 1)',
+    desc: 'Explore beautiful henna templates in a reusable workbook, designed to help you practise, improve and create with confidence.',
     variants: [
-      { label: '1 roll', price: 35 }
+      { label: 'Reusable workbook', price: 1000, was:1499 }
     ],
-    img: 'images/products/mefix.png'
+    img: 'images/products/practice-book.png'
   },
 
-  // 18. ACRYLIC HAND
-
   {
-    id: 'acrylic-hand',
-    cat: 'Tools & Accessories',
-    name: 'Acrylic Hand',
-    desc: 'A perfect practice companion for henna artists to create, improve and showcase designs with ease. Reusable and ideal for endless practice!',
+    id: 'gulf-design',
+    cat: 'Reusable Books and Templates',
+    name: 'Hiba Henna Gulf Designs Reusable Book (Part 2)',
+    desc: 'Explore 35+ exclusively Gulf-inspired henna designs in our reusable practice book, complete with a FREE realistic reusable hand template!',
     variants: [
-      { label: '1 piece', price: 30 }
+      { label: 'Reusable workbook', price: 1200, was:1800 }
     ],
-    img: 'images/products/acrylic-hand.png'
+    img: 'images/products/gulf-design.png'
   },
-
-  // 19. SPATULA
-
-  {
-    id: 'spatula',
-    cat: 'Tools & Accessories',
-    name: 'Henna Spatula',
-    desc: 'A must have henna essential for smooth, effortless mixing with minimal wastage.',
-    variants: [
-      { label: '1 piece', price: 12 }
-    ],
-    img: 'images/products/spatula.png'
-  },
-
-  // 20. REALISTIC HAND TEMPLATE
 
   {
     id: 'fake-hand',
@@ -309,25 +132,96 @@ var PRODUCTS = [
     name: 'Realistic Hand Template',
     desc: 'Reusable Realistic Hand Template - Practice your henna designs on a realistic hand template with ample space for creativity.',
     variants: [
-      { label: 'Reusable template', price: 15 }
+      { label: 'Reusable template', price: 45 }
     ],
     img: 'images/products/fake-hand.png'
   },
 
-  // 21. CELLOPHANE SHEET CUTTER (not in your list - kept at the end)
+    {
+    id: 'nail-cone',
+    cat: 'Nails Cones',
+    name: 'Premium Nail Cones',
+    desc: 'Achieve a rich, dark maroon stain with smooth application and long-lasting results.',
+    variants: [
+      { label: 'Set of 3', price: 90 },
+      { label: 'Set of 5', price: 140 },
+      { label: 'Set of 10', price: 250 }
+    ],
+    img: 'images/products/nail-cone.png'
+  },
+
+    {
+    id: 'beginner-kit',
+    cat: 'Kits',
+    name: 'Beginner Henna Kit',
+    desc: 'Henna powder - 100g, Eucalyptus oil - 30ml, Stocking - 1, Piping bag , Piping clip, cellophane sheets, pins , small bowl , small spatula , measuring cup smallMake your own DIY henna cones and begin your henna journey with all the essentials you need to get started.',
+    variants: [{ label: '', price: 400 }],
+    img: 'images/products/beginner-kit.png'
+  },
+
+
+  /* ---------- COMING SOON ---------- */
+
+
+  {
+    id: 'jagua-cone',
+    cat: 'Jagua Cones',
+    name: 'Premium Jagua Gel Cone',
+    desc: 'Create beautiful, tattoo-like designs with a deep blue-black stain using our ready-to-use Jagua gel cone.',
+    soon: true,
+    variants: [{ label: '', price: 0 }],
+    img: 'images/products/jagua-cone.png'
+  },
+
+  {
+    id: 'jagua-kit',
+    cat: 'Kits',
+    name: 'Jagua Kit',
+    desc: 'Make your own Jagua gel at home with our DIY kit and create beautiful, tattoo-like designs with a deep blue-black stain.',
+    soon: true,
+    variants: [{ label: '', price: 0 }],
+    img: 'images/products/jagua-kit.png'
+  },
+
+  {
+    id: 'mefix',
+    cat: 'Tools & Accessories',
+    name: 'Mefix / Henna Tape',
+    desc: 'Keeps dried henna securely in place, preventing flakes and ensuring a mess-free experience.',
+    soon: true,
+    variants: [{ label: '', price: 0 }],
+    img: 'images/products/mefix.png'
+  },
+
+  {
+    id: 'acrylic-hand',
+    cat: 'Tools & Accessories',
+    name: 'Acrylic Hand',
+    desc: 'A perfect practice companion for henna artists to create, improve and showcase designs with ease. Reusable and ideal for endless practice!',
+    soon: true,
+    variants: [{ label: '', price: 0 }],
+    img: 'images/products/acrylic-hand.png'
+  },
+
+  {
+    id: 'spatula',
+    cat: 'Tools & Accessories',
+    name: 'Henna Spatula',
+    desc: 'A must have henna essential for smooth, effortless mixing with minimal wastage.',
+    soon: true,
+    variants: [{ label: '', price: 0 }],
+    img: 'images/products/spatula.png'
+  },
 
   {
     id: 'cutter',
     cat: 'Tools & Accessories',
     name: 'Cellophane Sheet Cutter',
     desc: 'Cut cellophane sheets effortlessly and achieve clean, precise cuts for perfectly sized henna cones every time.',
-    variants: [
-      { label: '1 piece', price: 25 }
-    ],
+    soon: true,
+    variants: [{ label: '', price: 0 }],
     img: 'images/products/cutter.png'
   },
-
-  // 22. CELLOPHANE SHEETS (not in your list - kept at the end)
 
   {
     id: 'cellophane',
@@ -335,9 +229,8 @@ var PRODUCTS = [
     also: ['Henna Essentials'],
     name: 'Cellophane Sheets',
     desc: 'High-quality, easy-to-roll sheets designed for smooth cone making.',
-    variants: [
-      { label: 'Per piece', price: 1 }
-    ],
+    soon: true,
+    variants: [{ label: '', price: 0 }],
     img: 'images/products/cellophane.png'
   }
 
@@ -367,7 +260,7 @@ function save() {
 }
 
 function money(amount) {
-  return CURRENCY + ' ' + amount;
+  return CURRENCY + Number(amount).toLocaleString('en-IN');
 }
 
 function find(id) {
@@ -381,6 +274,18 @@ function find(id) {
   }
 
   return null;
+}
+
+function isSoon(p) {
+  return !!(p && p.soon);
+}
+
+function labelSmall(v) {
+  return v && v.label ? ' <small>(' + v.label + ')</small>' : '';
+}
+
+function labelPlain(v) {
+  return v && v.label ? ' (' + v.label + ')' : '';
 }
 
 
@@ -397,7 +302,7 @@ function priceHTML(v) {
 
     return '<small style="display:block;font-size:.55em;line-height:1.2;' +
       'font-weight:500;text-decoration:line-through;' +
-      'text-decoration-thickness:1.5px;color:#7a4a2e;opacity:.9;">' +
+      'text-decoration-thickness:1.5px;color:#d8c19c;opacity:.9;">' +
       money(v.was) +
       '</small>' +
       money(v.price);
@@ -412,7 +317,6 @@ function priceHTML(v) {
 /* =================================
    VARIANT HELPERS
    Cart key format:  productId|variantIndex
-   Example: henna-powder|2  (= 1kg)
 ================================= */
 
 var selectedVariant = {};
@@ -429,7 +333,7 @@ function parseKey(key) {
 
   var p = find(parts[0]);
 
-  if (!p) return null;
+  if (!p || p.soon) return null;
 
   var vi = Number(parts[1] || 0);
 
@@ -443,11 +347,13 @@ function parseKey(key) {
 
 
 /* =================================
-   DELIVERY NOTICE (shown to public
-   above the category filters)
+   DELIVERY NOTICE (only if
+   DELIVERY_NOTE is filled above)
 ================================= */
 
 function showDeliveryNotice() {
+
+  if (!DELIVERY_NOTE) return;
 
   var chips = $('chips');
 
@@ -461,15 +367,11 @@ function showDeliveryNotice() {
     'style',
     'text-align:center;margin:0 auto 18px;padding:14px 22px;' +
     'max-width:560px;border-radius:14px;' +
-    'background:#6b3f26;color:#f3e3c3;' +
-    'font-size:15px;line-height:1.7;letter-spacing:.3px;' +
-    'box-shadow:0 4px 14px rgba(107,63,38,.25);'
+    'background:#f3e3c3;color:#2b1911;' +
+    'font-size:15px;line-height:1.7;letter-spacing:.3px;'
   );
 
-  note.innerHTML =
-    '<strong style="color:#f6ecda;font-size:16px;">' +
-    'Delivery available all over UAE</strong><br>' +
-    'Flat delivery fee: ' + money(DELIVERY_FEE);
+  note.innerHTML = DELIVERY_NOTE;
 
   chips.parentNode.insertBefore(note, chips);
 
@@ -531,36 +433,53 @@ function renderGrid() {
 
       : '<svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3c3 3 3 7 0 10-3-3-3-7 0-10zM12 13v8M7 17c3-1 4-2 5-4M17 17c-3-1-4-2-5-4"/></svg>';
 
+    var soon = isSoon(p);
+
     var sel = getSelected(p.id);
 
     var current = p.variants[sel] || p.variants[0];
 
-    /* Dropdown if more than 1 option, otherwise just a size label */
+    /* Dropdown if more than 1 option, small label if 1 option */
 
     var variantUI = '';
 
-    if (p.variants.length > 1) {
+    if (!soon) {
 
-      variantUI = '<select class="vsel" data-var="' + p.id + '" ' +
-        'style="width:100%;margin:6px 0;padding:8px;border:1px solid #ccc;border-radius:8px;font-size:14px;background:#fff;">' +
+      if (p.variants.length > 1) {
 
-        p.variants.map(function(v, i) {
+        variantUI = '<select class="vsel" data-var="' + p.id + '" ' +
+          'style="width:100%;margin:6px 0;padding:8px;border:1px solid #5c3d2a;border-radius:8px;font-size:14px;background:#2b1911;color:#f3e3c3;">' +
 
-          return '<option value="' + i + '"' +
-            (i === sel ? ' selected' : '') + '>' +
-            v.label + ' - ' + money(v.price) +
-            '</option>';
+          p.variants.map(function(v, i) {
 
-        }).join('') +
+            return '<option value="' + i + '"' +
+              (i === sel ? ' selected' : '') + '>' +
+              v.label + ' - ' + money(v.price) +
+              '</option>';
 
-        '</select>';
+          }).join('') +
 
-    } else {
+          '</select>';
 
-      variantUI = '<small class="vlabel" style="display:block;margin:4px 0;opacity:.7;">' +
-        current.label + '</small>';
+      } else if (current.label) {
+
+        variantUI = '<small class="vlabel" style="display:block;margin:4px 0;opacity:.8;">' +
+          current.label + '</small>';
+
+      }
 
     }
+
+    var bottom = soon
+
+      ? '<div class="prow">' +
+        '<span class="price" style="font-size:22px;font-style:italic;opacity:.95;">Coming Soon</span>' +
+        '</div>'
+
+      : '<div class="prow">' +
+        '<span class="price">' + priceHTML(current) + '</span>' +
+        '<button class="btn sm" data-add="' + p.id + '">Add</button>' +
+        '</div>';
 
     return '<div class="prod" data-open="' + p.id + '" style="cursor:pointer;">' +
 
@@ -574,14 +493,9 @@ function renderGrid() {
 
       variantUI +
 
-      '<div class="prow">' +
+      bottom +
 
-      '<span class="price">' + priceHTML(current) + '</span>' +
-
-      '<button class="btn sm" data-add="' + p.id + '">' +
-      'Add</button>' +
-
-      '</div></div></div>';
+      '</div></div>';
 
   }).join('');
 
@@ -619,16 +533,16 @@ function buildDetail() {
   css.textContent =
 
     '#detail{position:fixed;top:0;left:0;right:0;bottom:0;z-index:9000;' +
-    'background:#f6ecda;overflow-y:auto;display:none;' +
+    'background:#2b1911;overflow-y:auto;display:none;' +
     '-webkit-overflow-scrolling:touch;}' +
 
     '#detail.on{display:block;}' +
 
-    '.d-top{position:sticky;top:0;z-index:2;background:#f6ecda;' +
-    'border-bottom:1px solid #e4d5b8;padding:10px 16px;}' +
+    '.d-top{position:sticky;top:0;z-index:2;background:#231209;' +
+    'border-bottom:1px solid #5c3d2a;padding:10px 16px;}' +
 
     '.d-back{background:none;border:0;font-family:inherit;font-size:16px;' +
-    'color:#5a3520;cursor:pointer;padding:8px 4px;letter-spacing:.5px;}' +
+    'color:#f3e3c3;cursor:pointer;padding:8px 4px;letter-spacing:.5px;}' +
 
     '.d-wrap{max-width:1000px;margin:0 auto;padding:20px 16px 50px;' +
     'display:grid;grid-template-columns:1fr;gap:22px;}' +
@@ -637,7 +551,7 @@ function buildDetail() {
     'gap:40px;padding-top:32px;}}' +
 
     '.d-imgbox{position:relative;overflow:hidden;border-radius:18px;' +
-    'background:#faf3e6;border:1px solid #e4d5b8;aspect-ratio:1/1;' +
+    'background:#3b2418;border:1px solid #5c3d2a;aspect-ratio:1/1;' +
     'cursor:zoom-in;touch-action:pan-y;user-select:none;' +
     '-webkit-user-select:none;-webkit-touch-callout:none;}' +
 
@@ -645,35 +559,37 @@ function buildDetail() {
     'transition:transform .18s ease-out;will-change:transform;' +
     'pointer-events:none;-webkit-user-drag:none;}' +
 
-    '.d-hint{text-align:center;font-size:13px;opacity:.65;margin-top:8px;' +
-    'color:#5a3520;}' +
+    '.d-hint{text-align:center;font-size:13px;opacity:.7;margin-top:8px;' +
+    'color:#d8c19c;}' +
 
     '.d-cat{font-size:12px;letter-spacing:2px;text-transform:uppercase;' +
-    'color:#8a6a4a;}' +
+    'color:#cdb48f;}' +
 
     '.d-name{font-family:"Cormorant Garamond",serif;font-size:32px;' +
-    'line-height:1.15;margin:6px 0 12px;color:#4a2a17;font-weight:600;}' +
+    'line-height:1.15;margin:6px 0 12px;color:#f6ecda;font-weight:600;}' +
 
-    '.d-desc{font-size:16px;line-height:1.7;color:#5a3520;margin-bottom:18px;}' +
+    '.d-desc{font-size:16px;line-height:1.7;color:#e6d3b0;margin-bottom:18px;}' +
 
-    '.d-lbl{font-size:13px;letter-spacing:1px;color:#8a6a4a;margin-bottom:6px;}' +
+    '.d-lbl{font-size:13px;letter-spacing:1px;color:#cdb48f;margin-bottom:6px;}' +
 
-    '.d-sel{width:100%;padding:12px;border:1px solid #d9c6a3;' +
-    'border-radius:10px;font-size:15px;background:#faf3e6;color:#5a3520;' +
+    '.d-sel{width:100%;padding:12px;border:1px solid #5c3d2a;' +
+    'border-radius:10px;font-size:15px;background:#3b2418;color:#f3e3c3;' +
     'margin-bottom:14px;font-family:inherit;}' +
 
-    '.d-size{font-size:15px;color:#5a3520;margin-bottom:14px;opacity:.85;}' +
+    '.d-size{font-size:15px;color:#e6d3b0;margin-bottom:14px;opacity:.9;}' +
 
     '.d-price{font-family:"Cormorant Garamond",serif;font-size:36px;' +
-    'color:#4a2a17;margin:6px 0 16px;font-weight:600;line-height:1.1;}' +
+    'color:#f6ecda;margin:6px 0 16px;font-weight:600;line-height:1.1;}' +
 
     '.d-add{width:100%;padding:16px;border:0;border-radius:999px;' +
-    'background:#6b3f26;color:#f6ecda;font-size:15px;letter-spacing:2px;' +
+    'background:#f3e3c3;color:#2b1911;font-size:15px;letter-spacing:2px;' +
     'text-transform:uppercase;cursor:pointer;font-family:inherit;}' +
 
     '.d-add:active{transform:scale(.98);}' +
 
-    '.d-del{margin-top:14px;font-size:14px;color:#5a3520;opacity:.8;' +
+    '.d-add[disabled]{opacity:.55;cursor:default;transform:none;}' +
+
+    '.d-del{margin-top:14px;font-size:14px;color:#d8c19c;opacity:.85;' +
     'text-align:center;}';
 
   document.head.appendChild(css);
@@ -725,6 +641,8 @@ function buildDetail() {
   $('dAdd').onclick = function() {
 
     if (!detailId) return;
+
+    if (isSoon(find(detailId))) return;
 
     var key = detailId + '|' + getSelected(detailId);
 
@@ -876,6 +794,15 @@ function updateDetailPrice() {
 
   if (!p) return;
 
+  if (isSoon(p)) {
+
+    $('dPrice').innerHTML =
+      '<span style="font-style:italic;font-size:.8em;">Coming Soon</span>';
+
+    return;
+
+  }
+
   var cur = p.variants[getSelected(p.id)] || p.variants[0];
 
   $('dPrice').innerHTML = priceHTML(cur);
@@ -890,6 +817,8 @@ function showDetailContent(id) {
   if (!p) return;
 
   detailId = id;
+
+  var soon = isSoon(p);
 
   var sel = getSelected(id);
 
@@ -920,7 +849,11 @@ function showDetailContent(id) {
 
   var wrap = $('dVarWrap');
 
-  if (p.variants.length > 1) {
+  if (soon) {
+
+    wrap.innerHTML = '';
+
+  } else if (p.variants.length > 1) {
 
     wrap.innerHTML =
       '<div class="d-lbl">SELECT SIZE</div>' +
@@ -941,15 +874,26 @@ function showDetailContent(id) {
 
     };
 
-  } else {
+  } else if (p.variants[0].label) {
 
     wrap.innerHTML =
       '<div class="d-size">' + p.variants[0].label + '</div>';
 
+  } else {
+
+    wrap.innerHTML = '';
+
   }
 
-  $('dDel').textContent =
-    'Delivery available all over UAE · Flat fee ' + money(DELIVERY_FEE);
+  /* Add to Cart button: disabled for Coming Soon */
+
+  $('dAdd').disabled = soon;
+
+  $('dAdd').textContent = soon ? 'Coming Soon' : 'Add to Cart';
+
+  $('dDel').textContent = (!soon && DELIVERY_NOTE)
+    ? DELIVERY_NOTE.replace(/<[^>]*>/g, ' ')
+    : '';
 
   updateDetailPrice();
 
@@ -1073,7 +1017,7 @@ function renderCart() {
 
           '<div>' +
 
-          '<div>' + p.name + ' <small>(' + v.label + ')</small></div>' +
+          '<div>' + p.name + labelSmall(v) + '</div>' +
 
           '<small>' + money(v.price) + '</small>' +
 
@@ -1096,15 +1040,15 @@ function renderCart() {
     : '<div class="empty">Your cart is empty.</div>';
 
 
-  /* Flat delivery fee (only when cart has items) */
+  /* Delivery fee (only when set above and cart has items) */
 
-  if (ids.length) {
+  if (ids.length && DELIVERY_FEE > 0) {
 
     itemsHtml += '<div class="it">' +
 
       '<div>' +
 
-      '<div>Delivery <small>(all over UAE)</small></div>' +
+      '<div>Delivery</div>' +
 
       '<small>Flat fee</small>' +
 
@@ -1229,13 +1173,17 @@ document.addEventListener('click', function(e) {
 
     var addId = addButton.dataset.add;
 
-    var addKey = addId + '|' + getSelected(addId);
+    if (!isSoon(find(addId))) {
 
-    cart[addKey] = (cart[addKey] || 0) + 1;
+      var addKey = addId + '|' + getSelected(addId);
 
-    renderCart();
+      cart[addKey] = (cart[addKey] || 0) + 1;
 
-    openCart(true);
+      renderCart();
+
+      openCart(true);
+
+    }
 
   }
 
@@ -1308,7 +1256,7 @@ $('order').onclick = function() {
 
     lines.push(
       '• ' + info.p.name +
-      ' (' + info.v.label + ')' +
+      labelPlain(info.v) +
       ' × ' + cart[key] +
       ' = ' + money(info.v.price * cart[key])
     );
@@ -1325,11 +1273,15 @@ $('order').onclick = function() {
   }
 
 
-  /* Add flat delivery fee */
+  /* Add delivery fee (only if set above) */
 
-  total += DELIVERY_FEE;
+  if (DELIVERY_FEE > 0) {
 
-  lines.push('• Delivery (all over UAE) = ' + money(DELIVERY_FEE));
+    total += DELIVERY_FEE;
+
+    lines.push('• Delivery = ' + money(DELIVERY_FEE));
+
+  }
 
 
   var msg = 'Hi Hiba Henna! I would like to order:\n' +
