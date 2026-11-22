@@ -14,249 +14,108 @@
 <link rel="stylesheet" href="style.css">
 
 <style>
-  /* HEADER TEXT (bigger) */
+  /* BOOK APPOINTMENT STRIP (compact + shimmer) */
 
-  header .logo {
-    font-size: 30px !important;
-  }
-
-  header .nav-links a {
-    font-size: 19px !important;
-  }
-
-  header .cartbtn {
-    font-size: 18px !important;
-  }
-
-  @media (max-width: 700px) {
-
-    header .logo {
-      font-size: 23px !important;
-    }
-
-    header .nav-links a {
-      font-size: 16px !important;
-    }
-
-    header .cartbtn {
-      font-size: 16px !important;
-    }
-
-  }
-
-
-  /* TOP BANNER (laptop = wide image, phone = phone-size image) */
-
-  .top-banner {
-    width: 100%;
-    background: #2b1911;
-    line-height: 0;
-  }
-
-  .top-banner picture {
-    display: block;
-  }
-
-  .top-banner img {
-    display: block;
-    height: auto;
-    margin: 0 auto;
-    width: min(100%, 1200px, calc((100vh - 130px) * 2));
-  }
-
-  @media (max-width: 700px) {
-
-    .top-banner img {
-      width: 100%;
-    }
-
-  }
-
-
-  /* =========================================
-     DARK BROWN THEME (beige text on dark brown)
-     Delete this whole block to go back to the
-     light beige theme.
-  ========================================= */
-
-  html,
-  body {
-    background: #2b1911 !important;
-    color: #f3e3c3 !important;
-  }
-
-  main,
-  #shop {
-    background: #2b1911 !important;
-  }
-
-  header {
-    background: #231209 !important;
-    border-bottom: 1px solid #5c3d2a !important;
-  }
-
-  header nav {
-    background: transparent !important;
-  }
-
-  .logo,
-  .nav-links a {
-    color: #f3e3c3 !important;
-  }
-
-  .cartbtn {
-    background: transparent !important;
-    color: #f3e3c3 !important;
-    border-color: #f3e3c3 !important;
-  }
-
-  #count {
-    background: #f3e3c3 !important;
-    color: #2b1911 !important;
-  }
-
-  .title h2 {
-    color: #f3e3c3 !important;
-  }
-
-  .chip {
-    background: #3b2418 !important;
-    color: #f3e3c3 !important;
-    border: 1px solid #5c3d2a !important;
-  }
-
-  .chip.on {
-    background: #f3e3c3 !important;
-    color: #2b1911 !important;
-    border-color: #f3e3c3 !important;
-  }
-
-  .prod {
-    background: #3b2418 !important;
-    border: 1px solid #5c3d2a !important;
-  }
-
-  .prod .pic {
-    background: repeating-linear-gradient(
-      135deg,
-      #3b2418 0 10px,
-      #43291b 10px 20px
-    ) !important;
-  }
-
-  .prod h3,
-  .pbody h3 {
-    color: #f6ecda !important;
-  }
-
-  .prod p,
-  .pbody p,
-  .vlabel {
-    color: #d8c19c !important;
-  }
-
-  .price {
-    color: #f6ecda !important;
-  }
-
-  .btn {
-    background: #f3e3c3 !important;
-    color: #2b1911 !important;
-  }
-
-  .vsel,
-  .d-sel {
-    background: #2b1911 !important;
-    color: #f3e3c3 !important;
-    border: 1px solid #5c3d2a !important;
-  }
-
-  .vsel option,
-  .d-sel option {
-    background: #3b2418;
+  .book-strip {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(120deg, #5a3520 0%, #7a4a2e 50%, #5a3520 100%);
     color: #f3e3c3;
+    text-align: center;
+    padding: 18px 20px;
   }
 
-  .band {
-    background: #1f110a !important;
-    color: #f3e3c3 !important;
+  /* moving shimmer light across the strip */
+  .book-strip::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -60%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(
+      100deg,
+      transparent 0%,
+      rgba(255, 233, 185, .28) 50%,
+      transparent 100%
+    );
+    transform: skewX(-20deg);
+    animation: bookShimmer 4.5s ease-in-out infinite;
+    pointer-events: none;
   }
 
-  .band h3,
-  .band p {
-    color: #f3e3c3 !important;
+  @keyframes bookShimmer {
+    0%   { left: -60%; }
+    55%  { left: 130%; }
+    100% { left: 130%; }
   }
 
-  footer {
-    background: #1f110a !important;
-    color: #d8c19c !important;
+  .book-strip h3 {
+    position: relative;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 4px;
+    color: #f6ecda;
+    letter-spacing: 1px;
   }
 
-  footer a,
-  .footer-brand,
-  .ar {
-    color: #f3e3c3 !important;
+  .book-strip p {
+    position: relative;
+    margin: 0 0 12px;
+    font-size: 14px;
+    opacity: .9;
   }
 
-  /* cart drawer */
-
-  .drawer {
-    background: #2b1911 !important;
-    color: #f3e3c3 !important;
+  .book-btn {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    padding: 10px 24px;
+    border-radius: 999px;
+    background: linear-gradient(120deg, #f3e3c3, #fff3d6, #f3e3c3);
+    color: #5a3520;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+    box-shadow: 0 0 14px rgba(255, 226, 170, .45);
   }
 
-  .dh {
-    border-color: #5c3d2a !important;
+  /* shimmer on the button too */
+  .book-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -80%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      100deg,
+      transparent,
+      rgba(255, 255, 255, .85),
+      transparent
+    );
+    transform: skewX(-20deg);
+    animation: btnShimmer 3s ease-in-out infinite;
   }
 
-  .dh h3,
-  .x {
-    color: #f3e3c3 !important;
+  @keyframes btnShimmer {
+    0%   { left: -80%; }
+    50%  { left: 140%; }
+    100% { left: 140%; }
   }
 
-  .it {
-    border-color: #5c3d2a !important;
-    color: #f3e3c3 !important;
+  .book-btn:active {
+    transform: scale(.97);
   }
 
-  .it small {
-    color: #cdb48f !important;
-  }
-
-  .qty button {
-    background: transparent !important;
-    color: #f3e3c3 !important;
-    border-color: #f3e3c3 !important;
-  }
-
-  .dfoot {
-    background: #34201a !important;
-    border-color: #5c3d2a !important;
-    color: #f3e3c3 !important;
-  }
-
-  .tot {
-    color: #f6ecda !important;
-  }
-
-  .drawer input,
-  .drawer textarea {
-    background: #3b2418 !important;
-    color: #f3e3c3 !important;
-    border: 1px solid #5c3d2a !important;
-  }
-
-  .drawer input::placeholder,
-  .drawer textarea::placeholder {
-    color: #a98e6c !important;
-  }
-
-  .err {
-    color: #ffb4a2 !important;
-  }
-
-  .empty {
-    color: #cdb48f !important;
+  @media (prefers-reduced-motion: reduce) {
+    .book-strip::after,
+    .book-btn::after {
+      animation: none;
+    }
   }
 </style>
 </head>
@@ -285,9 +144,6 @@
 
 <main id="top">
 
-
-
-
 <!-- PRODUCTS SECTION -->
 
 <section id="shop">
@@ -303,6 +159,24 @@
     <div class="grid" id="grid"></div>
 
   </div>
+
+</section>
+
+
+<!-- BOOK APPOINTMENT (above About) -->
+
+<section class="book-strip" id="book">
+
+  <h3>Book Henna Appointments</h3>
+
+  <p>Tap below to send us your booking details on WhatsApp.</p>
+
+  <a class="book-btn"
+     href="https://wa.me/971521800153?text=Hello%20Hiba%20Henna!%20I%20would%20like%20to%20book%20a%20henna%20appointment.%0A%0AName%3A%20%0ALocation%3A%20%0ADate%3A%20%0ATime%3A%20%0ANumber%20of%20people%3A%20"
+     target="_blank"
+     rel="noopener noreferrer">
+    Click Here🤎
+  </a>
 
 </section>
 
@@ -404,10 +278,9 @@
 </aside>
 
 
-<!-- FLOATING WHATSAPP ICON
-     (replace 91XXXXXXXXXX with your India WhatsApp number) -->
+<!-- FLOATING WHATSAPP ICON -->
 
-<a href="https://wa.me/91XXXXXXXXXX"
+<a href="https://wa.me/971521800153"
    class="whatsapp-float"
    target="_blank"
    rel="noopener noreferrer"
