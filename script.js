@@ -96,7 +96,7 @@ var PRODUCTS = [
     name: 'Hiba Henna Practice Book (Part 1)',
     desc: 'Explore beautiful henna templates in a reusable workbook, designed to help you practise, improve and create with confidence.',
     variants: [
-      { label: 'Reusable workbook', price: 80 }
+      { label: 'Reusable workbook', price: 80 , was:100}
     ],
     img: 'images/products/practice-book.png'
   },
@@ -109,7 +109,7 @@ var PRODUCTS = [
     name: 'Hiba Henna Gulf Designs Reusable Book (Part 2)',
     desc: 'Explore 35+ exclusively Gulf-inspired henna designs in our reusable practice book, complete with a FREE realistic reusable hand template!',
     variants: [
-      { label: 'Reusable workbook', price: 85 }
+      { label: 'Reusable workbook', price: 85 , was:100}
     ],
     img: 'images/products/gulf-design.png'
   },
@@ -308,7 +308,7 @@ var PRODUCTS = [
     name: 'Realistic Hand Template',
     desc: 'Reusable Realistic Hand Template - Practice your henna designs on a realistic hand template with ample space for creativity.',
     variants: [
-      { label: 'Reusable template', price: 15 }
+      { label: 'Reusable template', price: 15, was: 25 }
     ],
     img: 'images/products/fake-hand.png'
   },
