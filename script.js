@@ -35,6 +35,7 @@ var CATEGORIES = [
    cat  = main category
    also = extra categories where the product also shows
    variants = size/quantity + price
+   was  = (optional) old price, shown lined above the offer price
 ================================= */
 
 var PRODUCTS = [
@@ -88,7 +89,7 @@ var PRODUCTS = [
     img: 'images/products/tea-tree-oil.png'
   },
 
-  // 4. HIBA HENNA REUSABLE BOOK (BLUE) - PART 1
+  // 4. HIBA HENNA REUSABLE BOOK (BLUE) - PART 1  (offer: was 100, now 80)
 
   {
     id: 'practice-book',
@@ -96,12 +97,12 @@ var PRODUCTS = [
     name: 'Hiba Henna Practice Book (Part 1)',
     desc: 'Explore beautiful henna templates in a reusable workbook, designed to help you practise, improve and create with confidence.',
     variants: [
-      { label: 'Reusable workbook', price: 80 , was:100}
+      { label: 'Reusable workbook', price: 80, was: 100 }
     ],
     img: 'images/products/practice-book.png'
   },
 
-  // 5. GULF DESIGN BOOK - PART 2
+  // 5. GULF DESIGN BOOK - PART 2  (offer: was 100, now 85)
 
   {
     id: 'gulf-design',
@@ -109,7 +110,7 @@ var PRODUCTS = [
     name: 'Hiba Henna Gulf Designs Reusable Book (Part 2)',
     desc: 'Explore 35+ exclusively Gulf-inspired henna designs in our reusable practice book, complete with a FREE realistic reusable hand template!',
     variants: [
-      { label: 'Reusable workbook', price: 85 , was:100}
+      { label: 'Reusable workbook', price: 85, was: 100 }
     ],
     img: 'images/products/gulf-design.png'
   },
@@ -384,6 +385,31 @@ function find(id) {
 
 
 /* =================================
+   PRICE DISPLAY
+   If a variant has "was" (old price),
+   the old price is shown lined above
+   the offer price.
+================================= */
+
+function priceHTML(v) {
+
+  if (v && v.was) {
+
+    return '<small style="display:block;font-size:.55em;line-height:1.2;' +
+      'font-weight:500;text-decoration:line-through;' +
+      'text-decoration-thickness:1.5px;color:#7a4a2e;opacity:.9;">' +
+      money(v.was) +
+      '</small>' +
+      money(v.price);
+
+  }
+
+  return money(v.price);
+
+}
+
+
+/* =================================
    VARIANT HELPERS
    Cart key format:  productId|variantIndex
    Example: henna-powder|2  (= 1kg)
@@ -550,7 +576,7 @@ function renderGrid() {
 
       '<div class="prow">' +
 
-      '<span class="price">' + money(current.price) + '</span>' +
+      '<span class="price">' + priceHTML(current) + '</span>' +
 
       '<button class="btn sm" data-add="' + p.id + '">' +
       'Add</button>' +
@@ -639,7 +665,7 @@ function buildDetail() {
     '.d-size{font-size:15px;color:#5a3520;margin-bottom:14px;opacity:.85;}' +
 
     '.d-price{font-family:"Cormorant Garamond",serif;font-size:36px;' +
-    'color:#4a2a17;margin:6px 0 16px;font-weight:600;}' +
+    'color:#4a2a17;margin:6px 0 16px;font-weight:600;line-height:1.1;}' +
 
     '.d-add{width:100%;padding:16px;border:0;border-radius:999px;' +
     'background:#6b3f26;color:#f6ecda;font-size:15px;letter-spacing:2px;' +
@@ -852,7 +878,7 @@ function updateDetailPrice() {
 
   var cur = p.variants[getSelected(p.id)] || p.variants[0];
 
-  $('dPrice').textContent = money(cur.price);
+  $('dPrice').innerHTML = priceHTML(cur);
 
 }
 
